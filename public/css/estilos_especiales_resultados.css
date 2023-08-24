@@ -1,0 +1,12 @@
+.content-wrapper{
+	margin-left: 0px !important;
+}
+
+.main-footer{
+	margin-left: 0px !important;
+}
+
+td, th {
+	background: #007bff!important;
+	color: #fff;
+}

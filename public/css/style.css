@@ -1,0 +1,477 @@
+.body_login{
+    background: #fff;
+}
+
+.img-responsive{
+    margin-bottom: 5%;
+}
+
+#prueba {
+	position: relative;
+}
+
+.login-box{
+    /* position: absolute;
+    top: 15%; */
+	position: absolute;
+	top: 10%;
+	left: 50%;
+	transform: translate(-50%, 20%);
+}
+
+.footer_login {   
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    right: 0px;
+    left: 0px;
+  }
+
+.btn-login {
+    background: #00B74F;
+    border-color: #00B74F;
+}
+
+.btn-login:hover {
+    background: #008004;
+    border-color: #008004;
+}
+
+.deshabilitar{
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.midium_boton {
+    width: 40%;
+}
+
+.nombre_user_span{
+    font-size: 75%;
+}
+
+.centrar_texto{
+    text-align: center;
+}
+
+.color_fratech{
+    background-color: #093255;
+}
+
+.letras_color_fratech{
+	color: #093255;
+}
+
+.letra_iconos_blancos{
+    color: #fff !important;
+}
+
+.content-input input,
+.content-select select{
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+ 
+.content-input input{
+	visibility: hidden;
+	position: absolute;
+	right: 0;
+}
+
+.content-input{
+	position: relative;
+	margin-bottom: 30px;
+	padding:5px 0 5px 60px; /* Damos un padding de 60px para posicionar 
+        el elemento <i> en este espacio*/
+	display: block;
+}
+ 
+/* Estas reglas se aplicarán a todos las elementos i 
+después de cualquier input*/
+.content-input input + i{
+       background: #f0f0f0;
+       border:2px solid rgba(0,0,0,0.2);
+       position: absolute; 
+       left: 0;
+       top: 0;
+}
+ 
+/* Estas reglas se aplicarán a todos los i despues 
+de un input de tipo checkbox*/
+.content-input input[type=checkbox ] + i{
+	width: 52px;
+	height: 30px;
+	border-radius: 15px;
+}
+
+.content-input input[type=checkbox] + i:before{
+	content: ''; /* No hay contenido */
+	width: 26px;
+	height: 26px;
+	background: #fff;
+	border-radius: 50%;
+	position: absolute;
+	z-index: 1;
+	left: 0px;
+	top: 0px;
+	-webkit-box-shadow: 3px 0 3px 0 rgba(0,0,0,0.2);
+	box-shadow: 3px 0 3px 0 rgba(0,0,0,0.2);
+}
+
+.content-input input[type=checkbox]:checked + i:before{
+	left: 22px;
+	-webkit-box-shadow: -3px 0 3px 0 rgba(0,0,0,0.2);
+	box-shadow: 3px 0 -3px 0 rgba(0,0,0,0.2);
+}
+ 
+.content-input input[type=checkbox]:checked + i{
+ background: #2AC176;
+}
+
+.content-input input[type=checkbox] + i:after{
+	content: 'SI';
+	position: absolute;
+	font-size: 10px;
+	color: rgba(255,255,255,0.6);
+	top: 8px;
+	left: 4px;
+	opacity: 0 /* Ocultamos este elemento */;
+	transition: all 0.25s ease 0.25s;
+}
+ 
+/* Cuando esté checkeado cambiamos la opacidad a 1 y lo mostramos */
+.content-input input[type=checkbox]:checked + i:after{
+ opacity: 1;
+}
+
+.mi_header_card{
+	background: #12dd8f;
+	color: #fff;
+}
+
+.boton_mediano {
+    width: 70%;
+}
+
+.span_no{
+	margin-left: 64%;
+	font-size: 70%;
+}
+
+.carousel-control-next{
+	height: 20%;
+    top: 65%;
+    width: 5%;
+    margin-left: 10%;
+}
+
+.carousel-control-prev{
+	height: 20%;
+    top: 65%;
+    width: 5%;
+}
+
+.dorado{
+	color: #efb810;
+}
+
+.titulo{
+	font-size: 1.8vh !important;
+}
+
+.titulo_resultado{
+	font-size: 3vh !important;
+}
+
+.hr_mio{
+    border-bottom: 10px solid #fff;
+    border-radius: 10px;
+}
+
+.imagenes_bd{
+	width: 15vh;
+}
+
+.botones_qr{
+	margin: 10px;
+	padding: 5px;
+}
+
+.cargando_boton{
+	width: 10%;
+}
+
+.letras_titulo{
+	font-size: 3vh;
+}
+
+.letras_respuesta{
+	font: bold 90% monospace;
+	font-weight: 500 !important;
+}
+
+.footer_descompuesto{
+	margin-top: -1%;
+}
+
+.iconos_hijos{
+	right: 0rem !important;
+}
+
+.botones_iguales{
+	height: 5vh;
+}
+
+.botones_datatables{
+	text-align: right;
+}
+
+.TablaResponsiva {
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+.TablaResponsiva caption {
+	font-size: 1.5em;
+	margin: .5em 0 .75em;
+}
+
+.TablaResponsiva tr {
+	background-color: #f8f8f8;
+	border: 1px solid #ddd;
+	padding: .35em;
+}
+
+.TablaResponsiva th,
+.TablaResponsiva td {
+	padding: .625em;
+	text-align: center;
+}
+
+.TablaResponsiva th {
+	font-size: .85em;
+	letter-spacing: .1em;
+	text-transform: uppercase;
+}
+
+@media screen and (max-width: 600px) { 
+	/* @media screen and (max-width: 1590px) {*/
+	.TablaResponsiva {
+		border: 0;
+	}
+
+	.TablaResponsiva caption {
+		font-size: 1.3em;
+	}
+	
+	.TablaResponsiva thead {
+		border: none;
+		clip: rect(0 0 0 0);
+		height: 1px;
+		margin: -1px;
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		width: 1px;
+	}
+	
+	.TablaResponsiva tr {
+		border-bottom: 3px solid #ddd;
+		display: block;
+		margin-bottom: .625em;
+	}
+	
+	.TablaResponsiva td {
+		border-bottom: 1px solid #ddd;
+		display: block;
+		font-size: .8em;
+		text-align: right;
+	}
+	
+	.TablaResponsiva td::before {
+	/*
+	* aria-label has no advantage, it won't be read inside a table
+	content: attr(aria-label);
+	*/
+		content: attr(data-label);
+		float: left;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+	
+	.TablaResponsiva td:last-child {
+		border-bottom: 0;
+	}
+}
+
+.aviso{
+	color: red;
+}
+
+.centrar_texto{
+	text-align: center;
+}
+
+.btn_salir{
+	margin: 5px;
+	width: 80%;
+}
+
+/* #collage-container{
+	width:100%;
+	height:500px;
+	margin: 30px auto;
+	position: relative;
+	border: 2px solid #777;
+}
+
+#collage-one,#collage-two,#collage-three,#collage-four,
+#collage-five,#collage-six,#collage-seven{
+	width:168px;
+	height:224px;
+	padding:10px;
+	background:#eee;
+	border-radius:20px;
+	-moz-border-radius:20px;
+	-webkit-border-radius:20px;
+	position:absolute;
+}
+
+#collage-one{
+	z-index:1;
+	top:20px;
+	left:50px;
+	transform:rotate(-20deg);
+	-o-transform:rotate(-20deg);
+	-moz-transform:rotate(-20deg);
+	-webkit-transform:rotate(-20deg);
+}
+
+#collage-two{
+	z-index:2;
+	top:250px;
+	left: 320px;
+	transform:rotate(10deg);
+	-o-transform:rotate(10deg);
+	-moz-transform:rotate(10deg);
+	-webkit-transform:rotate(10deg);
+}
+
+#collage-three{
+	z-index:3;
+	top:20px;
+	left:150px;
+	transform:rotate(30deg);
+	-o-transform:rotate(30deg);
+	-moz-transform:rotate(30deg);
+	-webkit-transform:rotate(30deg);
+}
+
+#collage-four{
+	z-index:4;
+	top:250px;
+	left:50px;
+	transform:rotate(-40deg);
+	-o-transform:rotate(-40deg);
+	-moz-transform:rotate(-40deg);
+	-webkit-transform:rotate(-40deg);
+}
+
+#collage-five{
+	z-index:5;
+	top:20px;
+	left:407px;
+	transform:rotate(-40deg);
+	-o-transform:rotate(-43deg);
+	-moz-transform:rotate(-40deg);
+	-webkit-transform:rotate(-40deg);
+}
+
+#collage-six{
+	z-index:6;
+	top:20px;
+	left:280px;
+	transform:rotate(-10deg);
+	-o-transform:rotate(-10deg);
+	-moz-transform:rotate(-10deg);
+	-webkit-transform:rotate(-10deg);
+}
+
+#collage-seven{
+	z-index:7;
+	top:250px;
+	left:190px;
+	transform:rotate(30deg);
+	-o-transform:rotate(30deg);
+	-moz-transform:rotate(30deg);
+	-webkit-transform:rotate(30deg);
+} */
+
+#container_imagenes {
+  padding-top: 2rem;
+  width: 100%;
+}
+
+#collage-one,#collage-two,#collage-three,#collage-four,
+#collage-five,#collage-six,#collage-seven,#collage-eight,#collage-nine{
+	width:100%;
+	height:250px;
+	padding:10px;
+	background:#eee;
+	border-radius:20px;
+	-moz-border-radius:20px;
+	-webkit-border-radius:20px;
+	/* position:absolute; */
+}
+
+.row  #imagenes{
+  border-bottom: 3px solid #fff;
+  border-left: 3px solid #fff;
+}
+
+.row > div #imagenes {
+  border-top: 3px solid #fff;
+  border-right: 3px solid #fff;
+}
+
+.collage-item {
+  height: 250px;
+  background-repeat: no-repeat;
+  background-position: center center; 
+  object-fit: cover;
+}
+
+/* .img-1 {
+  background-image: url('https://images.pexels.com/photos/834872/pexels-photo-834872.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');
+}
+
+.img-2 {
+  background-image: url('https://images.pexels.com/photos/1755225/pexels-photo-1755225.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+}
+
+.img-3 {
+  background-image: url('https://images.pexels.com/photos/1685114/pexels-photo-1685114.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+}
+
+.img-4 {
+  background-image: url('https://images.pexels.com/photos/1467176/pexels-photo-1467176.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+} */
+
+@media only screen and (max-width: 768px) {
+  .container_imagenes {
+    width: 90%;
+  }
+}
+
+/* .result{
+    background-color: green;
+    color:#fff;
+    padding:20px;
+  }
+  .row{
+    display:flex;
+  } */

@@ -14,7 +14,7 @@ class ServiciosASMXController extends Controller
         $this->soapWrapper = $soapWrapper;
     }
 
-    public function traer_users(){
+    public function traer_users(Request $request){
         try {
             $data = null;
             $usuario = "Arzyz$2023AD";
@@ -32,18 +32,10 @@ class ServiciosASMXController extends Controller
 
             $datos = json_decode($results->ListadoEmpleadoResult);
 
-            foreach ($datos as $dato) {
-                var_dump($dato->estatus);
-                var_dump($dato->givenname);
-                var_dump($dato->samaccountname);
-            }
-
-            die();
-
             if ($datos != '') {
                 $data = array(
                     'datos' => $datos,
-                    'status' => 'success',
+                    'estatus' => 'success',
                     'code' => 200
                 );   
             }
@@ -51,7 +43,7 @@ class ServiciosASMXController extends Controller
         } catch (\Throwable $th) {
             $data = array(
                 'message' => $th->getmessage(),
-                'status' => 'error',
+                'estatus' => 'error',
                 'code' => 400
             );
         }

@@ -35,7 +35,7 @@ return [
          * be using the "HasRoles" and "HasPermissions" traits.
         */
 
-        'RPUsuarios' => 'RPUsuarios',
+        'users' => 'users',
 
         /*
         * When using the "HasRoles" trait from this package, we need to know which
@@ -43,7 +43,7 @@ return [
         * default value but you may easily change it to any table you like.
         */
 
-        'RPRoles' => 'RPRoles',
+        'roles' => 'roles',
 
         /*
         * When using the "HasRoles" trait from this package, we need to know which
@@ -51,7 +51,7 @@ return [
         * default value but you may easily change it to any table you like.
         */
 
-        'RPPermissions' => 'RPPermissions',
+        'permissions' => 'permissions',
 
         /*
         * When using the "HasRoles" trait from this package, we need to know which
@@ -59,7 +59,7 @@ return [
         * basic default value but you may easily change it to any table you like.
         */
 
-        'RPUser_has_permissions' => 'RPUser_has_permissions',
+        'user_has_permissions' => 'user_has_permissions',
 
         /*
         * When using the "HasRoles" trait from this package, we need to know which
@@ -67,7 +67,7 @@ return [
         * basic default value but you may easily change it to any table you like.
         */
 
-        'RPUser_has_roles' => 'RPUser_has_roles',
+        'user_has_roles' => 'user_has_roles',
 
         /*
         * When using the "HasRoles" trait from this package, we need to know which
@@ -75,7 +75,7 @@ return [
         * basic default value but you may easily change it to any table you like.
         */
 
-        'RPRole_has_permissions' => 'RPRole_has_permissions',
+        'role_has_permissions' => 'role_has_permissions',
     ],
  
     'foreign_keys' => [
@@ -83,6 +83,6 @@ return [
         /*
         * The name of the foreign key to the users table.
         */
-        'RPUsuarios' => 'user_id',
+        'users' => 'user_id',
     ],
 ];

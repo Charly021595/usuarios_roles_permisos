@@ -15,64 +15,134 @@ class CreatePermissionTables extends Migration
         $tableNames = config('laravel-permission.table_names');
         $foreignKeys = config('laravel-permission.foreign_keys');
 
-        Schema::create($tableNames['RPRoles'], function (Blueprint $table) {
+        // Schema::create($tableNames['RPRoles'], function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->string('name')->unique();
+        //     $table->string('descripcion');
+        //     $table->integer('estatus');
+        //     $table->timestamps();
+        // });
+
+        // Schema::create($tableNames['RPPermissions'], function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->string('name')->unique();
+        //     $table->string('descripcion');
+        //     $table->integer('estatus');
+        //     $table->timestamps();
+        // });
+
+        // Schema::create($tableNames['RPUser_has_permissions'], function (Blueprint $table) use ($tableNames, $foreignKeys) {
+        //     $table->integer($foreignKeys['RPUsuarios'])->unsigned();
+        //     $table->integer('permission_id')->unsigned();
+
+        //     $table->foreign($foreignKeys['RPUsuarios'])
+        //         ->references('id')
+        //         ->on($tableNames['RPUsuarios'])
+        //         ->onDelete('cascade');
+
+        //     $table->foreign('permission_id')
+        //         ->references('id')
+        //         ->on($tableNames['RPPermissions'])
+        //         ->onDelete('cascade');
+
+        //     $table->primary([$foreignKeys['RPUsuarios'], 'permission_id']);
+        // });
+
+        // Schema::create($tableNames['RPUser_has_roles'], function (Blueprint $table) use ($tableNames, $foreignKeys) {
+        //     $table->integer('role_id')->unsigned();
+        //     $table->integer($foreignKeys['RPUsuarios'])->unsigned();
+
+        //     $table->foreign('role_id')
+        //         ->references('id')
+        //         ->on($tableNames['RPRoles'])
+        //         ->onDelete('cascade');
+
+        //     $table->foreign($foreignKeys['RPUsuarios'])
+        //         ->references('id')
+        //         ->on($tableNames['RPUsuarios'])
+        //         ->onDelete('cascade');
+
+        //     $table->primary(['role_id', $foreignKeys['RPUsuarios']]);
+        // });
+
+        // Schema::create($tableNames['RPRole_has_permissions'], function (Blueprint $table) use ($tableNames) {
+        //     $table->integer('permission_id')->unsigned();
+        //     $table->integer('role_id')->unsigned();
+
+        //     $table->foreign('permission_id')
+        //         ->references('id')
+        //         ->on($tableNames['RPPermissions'])
+        //         ->onDelete('cascade');
+
+        //     $table->foreign('role_id')
+        //         ->references('id')
+        //         ->on($tableNames['RPRoles'])
+        //         ->onDelete('cascade');
+
+        //     $table->primary(['permission_id', 'role_id']);
+        // });
+        Schema::create($tableNames['roles'], function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
+            $table->string('descripcion');
+            $table->integer('estatus');
             $table->timestamps();
         });
 
-        Schema::create($tableNames['RPPermissions'], function (Blueprint $table) {
+        Schema::create($tableNames['permissions'], function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
+            $table->string('descripcion');
+            $table->integer('estatus');
             $table->timestamps();
         });
 
-        Schema::create($tableNames['RPUser_has_permissions'], function (Blueprint $table) use ($tableNames, $foreignKeys) {
-            $table->integer($foreignKeys['RPUsuarios'])->unsigned();
+        Schema::create($tableNames['user_has_permissions'], function (Blueprint $table) use ($tableNames, $foreignKeys) {
+            $table->integer($foreignKeys['users'])->unsigned();
             $table->integer('permission_id')->unsigned();
 
-            $table->foreign($foreignKeys['RPUsuarios'])
+            $table->foreign($foreignKeys['users'])
                 ->references('id')
-                ->on($tableNames['RPUsuarios'])
+                ->on($tableNames['users'])
                 ->onDelete('cascade');
 
             $table->foreign('permission_id')
                 ->references('id')
-                ->on($tableNames['RPPermissions'])
+                ->on($tableNames['permissions'])
                 ->onDelete('cascade');
 
-            $table->primary([$foreignKeys['RPUsuarios'], 'permission_id']);
+            $table->primary([$foreignKeys['users'], 'permission_id']);
         });
 
-        Schema::create($tableNames['RPUser_has_roles'], function (Blueprint $table) use ($tableNames, $foreignKeys) {
+        Schema::create($tableNames['user_has_roles'], function (Blueprint $table) use ($tableNames, $foreignKeys) {
             $table->integer('role_id')->unsigned();
-            $table->integer($foreignKeys['RPUsuarios'])->unsigned();
+            $table->integer($foreignKeys['users'])->unsigned();
 
             $table->foreign('role_id')
                 ->references('id')
-                ->on($tableNames['RPRoles'])
+                ->on($tableNames['roles'])
                 ->onDelete('cascade');
 
-            $table->foreign($foreignKeys['RPUsuarios'])
+            $table->foreign($foreignKeys['users'])
                 ->references('id')
-                ->on($tableNames['RPUsuarios'])
+                ->on($tableNames['users'])
                 ->onDelete('cascade');
 
-            $table->primary(['role_id', $foreignKeys['RPUsuarios']]);
+            $table->primary(['role_id', $foreignKeys['users']]);
         });
 
-        Schema::create($tableNames['RPRole_has_permissions'], function (Blueprint $table) use ($tableNames) {
+        Schema::create($tableNames['role_has_permissions'], function (Blueprint $table) use ($tableNames) {
             $table->integer('permission_id')->unsigned();
             $table->integer('role_id')->unsigned();
 
             $table->foreign('permission_id')
                 ->references('id')
-                ->on($tableNames['RPPermissions'])
+                ->on($tableNames['permissions'])
                 ->onDelete('cascade');
 
             $table->foreign('role_id')
                 ->references('id')
-                ->on($tableNames['RPRoles'])
+                ->on($tableNames['roles'])
                 ->onDelete('cascade');
 
             $table->primary(['permission_id', 'role_id']);
@@ -88,10 +158,15 @@ class CreatePermissionTables extends Migration
     {
         $tableNames = config('laravel-permission.table_names');
 
-        Schema::drop($tableNames['RPRole_has_permissions']);
-        Schema::drop($tableNames['RPUser_has_roles']);
-        Schema::drop($tableNames['RPUser_has_permissions']);
-        Schema::drop($tableNames['RPRoles']);
-        Schema::drop($tableNames['RPPermissions']);
+        // Schema::drop($tableNames['RPRole_has_permissions']);
+        // Schema::drop($tableNames['RPUser_has_roles']);
+        // Schema::drop($tableNames['RPUser_has_permissions']);
+        // Schema::drop($tableNames['RPRoles']);
+        // Schema::drop($tableNames['RPPermissions']);
+        Schema::drop($tableNames['role_has_permissions']);
+        Schema::drop($tableNames['user_has_roles']);
+        Schema::drop($tableNames['user_has_permissions']);
+        Schema::drop($tableNames['roles']);
+        Schema::drop($tableNames['permissions']);
     }
 }

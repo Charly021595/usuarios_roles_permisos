@@ -13,7 +13,19 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('RPUsuarios', function (Blueprint $table) {
+        // Schema::create('RPUsuarios', function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->string('nombre');
+        //     $table->string('nombre_usuario')->unique();
+        //     $table->integer('no_empleado');
+        //     $table->string('email');
+        //     $table->string('password');
+        //     $table->rememberToken();
+        //     $table->integer('estatus');
+        //     $table->timestamps();
+        // });
+
+        Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
             $table->string('nombre_usuario')->unique();
@@ -24,6 +36,7 @@ class CreateUsersTable extends Migration
             $table->integer('estatus');
             $table->timestamps();
         });
+
     }
 
     /**
@@ -33,6 +46,7 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('RPUsuarios');
+        // Schema::dropIfExists('RPUsuarios');
+        Schema::dropIfExists('users');
     }
 }

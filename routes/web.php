@@ -17,26 +17,28 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->middleware(['auth', 'can:admin.home'])->name('home');
 
 //Prueba WSLD
-Route::get('/prueba', 'ServiciosASMXController@traer_users')->name('prueba');
-Route::post('/traer_usuarios', 'ServiciosASMXController@traer_users')->name('traer_usuarios');
+Route::post('/traer_usuarios', 'ServiciosASMXController@traer_users')->middleware(['auth', 'can:admin.home'])->name('traer_usuarios');
 
 //Usuarios
-Route::post('/guardar_usuarios', 'UserController@guardar_usuarios')->name('guardar_usuarios');
+Route::post('/guardar_usuarios', 'UserController@guardar_usuarios')->middleware(['auth', 'can:admin.home'])->name('guardar_usuarios');
+
+//API Usuarios
+Route::post('/api/login_usuarios', 'UserController@login_api')->name('login_usuarios');
 
 //Roles
-Route::get('/vista_roles', 'RolController@vista_roles')->name('vista_roles');
-Route::post('/traer_permisos_roles', 'RolController@traer_permisos_roles')->name('traer_permisos_roles');
-Route::post('/traer_roles', 'RolController@lista_roles')->name('traer_roles');
-Route::post('/guardar_roles', 'RolController@guardar_roles')->name('guardar_roles');
-Route::post('/buscar_roles', 'RolController@buscar_roles')->name('buscar_roles');
-Route::post('/actualizar_rol', 'RolController@actualizar_roles')->name('actualizar_rol');
+Route::get('/vista_roles', 'RolController@vista_roles')->middleware(['auth', 'can:admin.roles.ver'])->name('vista_roles');
+Route::post('/traer_permisos_roles', 'RolController@traer_permisos_roles')->middleware('auth')->name('traer_permisos_roles');
+Route::post('/traer_roles', 'RolController@lista_roles')->middleware('auth')->name('traer_roles');
+Route::post('/guardar_roles', 'RolController@guardar_roles')->middleware(['auth', 'can:admin.roles.crear'])->name('guardar_roles');
+Route::post('/buscar_roles', 'RolController@buscar_roles')->middleware('auth')->name('buscar_roles');
+Route::post('/actualizar_rol', 'RolController@actualizar_roles')->middleware(['auth', 'can:admin.roles.editar'])->name('actualizar_rol');
 
 //Permisos
-Route::get('/vista_permisos', 'PermisoController@vista_permisos')->name('vista_permisos');
-Route::post('/traer_permisos', 'PermisoController@lista_permisos')->name('traer_permisos');
-Route::post('/guardar_permisos', 'PermisoController@guardar_permisos')->name('guardar_permisos');
-Route::post('/buscar_permisos', 'PermisoController@buscar_permisos')->name('buscar_permisos');
-Route::post('/actualizar', 'PermisoController@actualizar_permisos')->name('actualizar_permiso');
+Route::get('/vista_permisos', 'PermisoController@vista_permisos')->middleware(['auth', 'can:admin.permisos.ver'])->name('vista_permisos');
+Route::post('/traer_permisos', 'PermisoController@lista_permisos')->middleware('auth')->name('traer_permisos');
+Route::post('/guardar_permisos', 'PermisoController@guardar_permisos')->middleware(['auth', 'can:admin.permisos.crear'])->name('guardar_permisos');
+Route::post('/buscar_permisos', 'PermisoController@buscar_permisos')->middleware('auth')->name('buscar_permisos');
+Route::post('/actualizar', 'PermisoController@actualizar_permisos')->middleware(['auth', 'can:admin.permisos.editar'])->name('actualizar_permiso');

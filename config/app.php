@@ -178,6 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Artisaninweb\SoapWrapper\ServiceProvider::class,
+        App\Providers\JwtAuthServiceProvider::class,
     ],
 
     /*
@@ -226,7 +227,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'SoapWrapper' => Artisaninweb\SoapWrapper\Facade\SoapWrapper::class, 
+        'SoapWrapper' => Artisaninweb\SoapWrapper\Facade\SoapWrapper::class,
+        'JwtAuth' => App\Helpers\JwtAuth::class 
     ],
 
 ];
